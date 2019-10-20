@@ -18,8 +18,13 @@ export const StyledButton = styled.button`
   justify-content: center;
   align-items: center;
 
-  @media ${media.medium} {
+  a {
+    text-decoration: none;
+    color: ${colors.white};
     width: 100%;
+  }
+
+  @media ${media.medium} {
   }
 
   &:hover {

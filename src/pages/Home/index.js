@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Button from '../../components/Button';
 
 import { getPokemonsRequest } from '../../store/modules/pokemon/actions';
@@ -22,7 +23,9 @@ export default function Home() {
 
         <ActionBar>
           <input type="text" placeholder="Faça uma busca" />
-          <Button type="button">ADD</Button>
+          <Button type="button">
+            <Link to="/new">Add</Link>
+          </Button>
         </ActionBar>
 
         <ListItem />

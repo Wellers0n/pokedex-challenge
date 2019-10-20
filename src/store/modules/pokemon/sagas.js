@@ -11,13 +11,8 @@ export function* getPokemon() {
   yield put(getPokemonSuccess(results));
 }
 
-export function* getHabillities({ payload }) {
-  console.tron.log(payload.id);
-
-  const response = yield call(api.get, `pokemon/${payload.id}`);
-  const { data } = response;
-
-  yield put(getPokemonHabillitiesSuccess(data));
+export function* getHabillities() {
+  yield put(getPokemonHabillitiesSuccess());
 }
 
 export default all([

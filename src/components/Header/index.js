@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { signOut } from '../../store/modules/auth/actions';
+import logo from '../../assets/logo.svg';
 
 import { Container } from './styles';
 
@@ -14,7 +15,7 @@ export default function Header() {
   }
   return (
     <Container>
-      <p>Pokemon</p>
+      <img src={logo} alt="logo" />
       <button type="button" onClick={handleLogout}>
         {logged !== null ? 'Logout' : ''}
       </button>

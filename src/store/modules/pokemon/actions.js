@@ -11,10 +11,9 @@ export function getPokemonSuccess(results) {
   };
 }
 
-export function getPokemonHabillitiesRequest(id) {
+export function getPokemonHabillitiesRequest() {
   return {
     type: '@pokemon/GET_POKEMON_HABILITIES_REQUEST',
-    payload: { id },
   };
 }
 
