@@ -27,6 +27,8 @@ export default function pokemon(state = INITIAL_STATE, action) {
         draft.loading = false;
         draft.info = action.payload.data;
 
+        console.tron.log(action.payload.data);
+
         break;
       }
 

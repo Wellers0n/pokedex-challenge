@@ -30,5 +30,6 @@ module.exports = {
     "import/prefer-default-export": "off",
     "react/forbid-prop-types": "off",
     "no-param-reassign": "off",
+    "react-hooks/exhaustive-deps": 'off'
   },
 };
