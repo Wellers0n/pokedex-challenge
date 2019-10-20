@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import { signInRequest } from '../../store/modules/auth/actions';
 
 import Button from '../../components/Button';
+import pokeball from '../../assets/pokeball.svg';
 
 import { Container, StyledForm, StyledInput } from './styles';
 
@@ -23,6 +24,7 @@ export default function SignIn() {
   }
   return (
     <Container>
+      <img src={pokeball} alt="pokeball" />
       <StyledForm onSubmit={handleSubmit} schema={schema}>
         <StyledInput
           name="email"

@@ -21,10 +21,15 @@ export const StyledButton = styled.button`
   a {
     text-decoration: none;
     color: ${colors.white};
-    width: 100%;
+  }
+
+  img {
+    width: 23px;
+    height: 23px;
   }
 
   @media ${media.medium} {
+    width: 100%;
   }
 
   &:hover {

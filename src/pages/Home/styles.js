@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import colors from '../../styles/colors';
+import media from '../../styles/media';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -24,13 +25,17 @@ export const ActionBar = styled.div`
   width: 100%;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-bottom: 15px;
 
-  input {
-    padding: 10px;
-    border-radius: 3px;
-    max-width: 400px;
-    border: 1px solid ${colors.darkestWhite};
+  a {
+    color: ${colors.white};
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media ${media.medium} {
+      width: 100%;
+    }
   }
 `;

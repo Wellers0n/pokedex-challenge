@@ -19,5 +19,14 @@ export const Container = styled.div`
     color: ${colors.white};
     font-weight: bold;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 30px;
+      height: 30px;
+      margin-right: 5px;
+    }
   }
 `;

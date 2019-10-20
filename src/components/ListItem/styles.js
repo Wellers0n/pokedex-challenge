@@ -19,6 +19,13 @@ export const Wrapper = styled.ul`
     margin: 5px;
     border-radius: 4px;
     position: relative;
+    transition: all 0.1s ease-in;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 6px 17px -6px rgba(0, 0, 0, 0.3);
+      background: ${colors.darkWhite};
+    }
 
     &:hover small {
       background: ${colors.red};
@@ -59,11 +66,11 @@ export const Wrapper = styled.ul`
       background: none;
       border: none;
       cursor: pointer;
-      svg {
+      img {
+        width: 20px;
+        height: 20px;
         margin-right: 3px;
       }
-    }
-    img {
     }
   }
 `;

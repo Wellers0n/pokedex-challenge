@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { MdDeleteForever } from 'react-icons/md';
-
 import { useSelector } from 'react-redux';
+import Delete from '../../assets/freedom.svg';
 
 import { Wrapper } from './styles';
 
 import api from '../../services/api';
-import colors from '../../styles/colors';
 
 export default function ListItem() {
   const [poke, setPoke] = useState([]);
@@ -39,7 +37,7 @@ export default function ListItem() {
 
             <button type="button" onClick={() => handleDelete(p.data.id)}>
               Delete
-              <MdDeleteForever size={20} color={colors.red} />
+              <img src={Delete} alt="delete" />
             </button>
           </li>
         ))}

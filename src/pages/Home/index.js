@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button';
+import star from '../../assets/star.svg';
 
 import { getPokemonsRequest } from '../../store/modules/pokemon/actions';
 
@@ -22,10 +23,12 @@ export default function Home() {
         <h1>hello, Welcome to the pokedex</h1>
 
         <ActionBar>
-          <input type="text" placeholder="Faça uma busca" />
-          <Button type="button">
-            <Link to="/new">Add</Link>
-          </Button>
+          <Link to="/new">
+            <Button type="button">
+              <img src={star} alt="star" />
+              Add
+            </Button>
+          </Link>
         </ActionBar>
 
         <ListItem />

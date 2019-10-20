@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { Form, Input, Textarea } from '@rocketseat/unform';
+import { Form, Input, Textarea, Select, Choice } from '@rocketseat/unform';
 import colors from '../../styles/colors';
+import media from '../../styles/media';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -30,6 +31,18 @@ export const StyledForm = styled(Form)`
   margin: 30px;
   padding: 30px;
 
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+
   input[type='file'] {
     display: transparent;
     opacity: 0;
@@ -37,24 +50,8 @@ export const StyledForm = styled(Form)`
     width: 100%;
   }
 
-  div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 120px;
-    height: 120px;
-    background: ${colors.darkWhite};
-    border-radius: 60px;
-    cursor: pointer;
-    position: relative;
-
-    svg {
-      position: absolute;
-      top: 50;
-      right: 50;
-      color: ${colors.darkestWhite};
-    }
+  span {
+    color: red;
   }
 `;
 
@@ -73,6 +70,13 @@ export const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
+  justify-content: space-around;
+  margin-top: 20px;
+  @media ${media.medium} {
+    button {
+      margin: 0 3px;
+    }
+  }
 `;
 
 export const TextInput = styled(Textarea)`
@@ -82,4 +86,76 @@ export const TextInput = styled(Textarea)`
   border: 1px solid ${colors.darkestWhite};
   margin: 15px;
   align-self: flex-end;
+`;
+
+export const SelectInput = styled(Select)`
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid ${colors.darkestWhite};
+  margin: 15px;
+  align-self: flex-end;
+`;
+
+export const ChoiceContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  input[type='checkbox'] {
+    border-radius: 4px;
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    outline: 0;
+    background: ${colors.darkestWhite};
+    margin-left: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+
+    :checked {
+      background: ${colors.blue};
+    }
+  }
+  span {
+    margin: 30px;
+  }
+`;
+export const StyledChoice = styled(Choice)`
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid ${colors.darkestWhite};
+  margin: 15px;
+  align-self: flex-end;
+`;
+
+export const AvatarInput = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  background: ${colors.darkWhite};
+  border-radius: 60px;
+
+  position: relative;
+
+  svg {
+    position: absolute;
+    top: 50;
+    right: 50;
+    color: ${colors.darkestWhite};
+    cursor: pointer;
+  }
+`;
+
+export const Divider = styled.div`
+  width: 100%;
+  height: 1px;
+  background: ${colors.darkestWhite};
+  margin: 30px 0;
 `;
