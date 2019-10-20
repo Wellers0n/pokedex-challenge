@@ -143,6 +143,7 @@ export const AvatarInput = styled.div`
   border-radius: 60px;
 
   position: relative;
+  border: 1px solid ${colors.darkestWhite};
 
   svg {
     position: absolute;

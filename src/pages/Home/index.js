@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button';
 import star from '../../assets/star.svg';
+import history from '../../services/history';
 
 import { getPokemonsRequest } from '../../store/modules/pokemon/actions';
 
@@ -17,13 +18,17 @@ export default function Home() {
     dispatch(getPokemonsRequest());
   }, []);
 
+  function handleNew() {
+    history.push('/');
+  }
+
   return (
     <Wrapper>
       <Container>
         <h1>hello, Welcome to the pokedex</h1>
 
         <ActionBar>
-          <Link to="/new">
+          <Link to="/new" onClick={handleNew}>
             <Button type="button">
               <img src={star} alt="star" />
               Add

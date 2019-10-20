@@ -6,7 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import { store, persistor } from './store';
 
 import GlobalStyle from './styles/global';
-import Routes from './routes';
+import Routes from './routes/index';
 import history from './services/history';
 import './config/reactotronConfig';
 import Header from './components/Header';
