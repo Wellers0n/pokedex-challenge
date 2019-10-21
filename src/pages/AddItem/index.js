@@ -29,27 +29,29 @@ const schema = Yup.object().shape({
   description: Yup.string().required('A descrição é obrigatório'),
 
   attributes: Yup.object({
-    atk: Yup.number()
-      .max(120)
-      .required('O atk é obrigatório'),
-    def: Yup.number(),
-    spd: Yup.number(),
-    sp_atack: Yup.number(),
-    sp_def: Yup.number(),
-    HP: Yup.number(),
-  }),
+    atk: Yup.number().typeError('atk must be a number and it is required'),
+    def: Yup.number().typeError('def must be a number and it is required'),
+    spd: Yup.number().typeError('spd must be a number and it is required'),
+    sp_atack: Yup.number().typeError(
+      'sp-atack must be a number and it is required'
+    ),
+    sp_def: Yup.number().typeError(
+      'sp-def must be a number and it is required'
+    ),
+    HP: Yup.number().typeError('HP must be a number and it is required'),
+  }).required('The attributes are required'),
   abilities: Yup.object({
     ability: Yup.object({
       ability_name: Yup.string().required('A Skill é obrigatória'),
       ability_strengh: Yup.number()
-        .typeError('Ability Strengh must be a number')
+        .typeError('Ability Strengh must be a number and it is required')
         .required('A Skill é obrigatória'),
       short_effect: Yup.string().required('A Skill é obrigatória'),
     }),
     ability_2: Yup.object({
       ability_name: Yup.string(),
       ability_strengh: Yup.number().typeError(
-        'Ability Strengh must be a number'
+        'Ability Strengh must be a number '
       ),
       short_effect: Yup.string(),
     }),
