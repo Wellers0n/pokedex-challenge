@@ -1,6 +1,5 @@
 import React from 'react';
 import { Scope } from '@rocketseat/unform';
-import { Link } from 'react-router-dom';
 import { MdCameraAlt } from 'react-icons/md';
 import * as Yup from 'yup';
 
@@ -18,6 +17,7 @@ import {
   ChoiceContainer,
   AvatarInput,
   Divider,
+  StyledLink,
 } from './styles';
 import Button from '../../components/Button';
 import AvatarInputs from '../../components/AvatarInputs';
@@ -271,12 +271,10 @@ export default function AddItem() {
           </Scope>
 
           <ButtonWrapper>
-            <Button>Cadastrar</Button>
-            <Button>
-              <Link to="/home">Voltar</Link>
-            </Button>
+            <Button type="submit">Cadastrar</Button>
           </ButtonWrapper>
         </StyledForm>
+        <StyledLink to="/home">Voltar</StyledLink>
       </Container>
     </Wrapper>
   );

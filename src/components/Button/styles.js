@@ -33,6 +33,6 @@ export const StyledButton = styled.button`
   }
 
   &:hover {
-    background: ${colors.red};
+    background: ${colors.green};
   }
 `;

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Form, Input, Textarea, Select, Choice } from '@rocketseat/unform';
+import { Link } from 'react-router-dom';
 import colors from '../../styles/colors';
 import media from '../../styles/media';
 
@@ -116,7 +117,7 @@ export const ChoiceContainer = styled.div`
     appearance: none;
     outline: 0;
     background: ${colors.darkestWhite};
-    margin-left: 15px;
+    margin-left: 10px;
     margin-right: 10px;
     cursor: pointer;
 
@@ -165,4 +166,23 @@ export const Divider = styled.div`
   height: 1px;
   background: ${colors.darkestWhite};
   margin: 30px 0;
+`;
+
+export const StyledLink = styled(Link)`
+  display: flex;
+  padding: 15px;
+  background: ${colors.blue};
+  text-decoration: none;
+  font-weight: bold;
+  color: ${colors.white};
+  border-radius: 4px;
+  max-width: 700px;
+  transition: all 0.2s ease-in;
+  margin: 0 20px 50px 20px;
+  width: 100%;
+  justify-content: center;
+
+  &:hover {
+    background: ${colors.red};
+  }
 `;
