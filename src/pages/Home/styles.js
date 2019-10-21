@@ -16,6 +16,11 @@ export const Container = styled.div`
   justify-content: center;
   margin-bottom: 50px;
 
+  button {
+    margin: 15px 0;
+    height: 45px;
+  }
+
   h1 {
     margin: 30px;
   }

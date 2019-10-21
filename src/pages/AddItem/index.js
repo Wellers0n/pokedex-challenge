@@ -38,42 +38,61 @@ const schema = Yup.object().shape({
     sp_def: Yup.number(),
     HP: Yup.number(),
   }),
-  abillities: Yup.object({
-    abillity: Yup.object({
-      abillity_name: Yup.string().required('A Skill é obrigatória'),
-      abillity_strengh: Yup.number().required('A Skill é obrigatória'),
+  abilities: Yup.object({
+    ability: Yup.object({
+      ability_name: Yup.string().required('A Skill é obrigatória'),
+      ability_strengh: Yup.number()
+        .typeError('Ability Strengh must be a number')
+        .required('A Skill é obrigatória'),
       short_effect: Yup.string().required('A Skill é obrigatória'),
     }),
-    abillity_2: Yup.object({
-      abillity_name: Yup.string(),
-      abillity_strengh: Yup.number(),
+    ability_2: Yup.object({
+      ability_name: Yup.string(),
+      ability_strengh: Yup.number().typeError(
+        'Ability Strengh must be a number'
+      ),
+      short_effect: Yup.string(),
+    }),
+    ability_3: Yup.object({
+      ability_name: Yup.string(),
+      ability_strengh: Yup.number()
+        .nullable()
+        .typeError('Ability Strengh must be a number'),
+
       short_effect: Yup.string(),
     }),
   }),
 });
 
 const initialData = {
-  name: 'pikachu',
-  types: 'Fire',
-  description: 'a nice pokemon',
+  name: 'Psyduck',
+  types: ['Water'],
+  description: `Psyduck uses a mysterious power. When it does so, this Pokémon 
+  generates brain waves that are supposedly only seen in sleepers.
+  `,
   attributes: {
-    atk: 15,
-    def: 15,
-    spd: 15,
-    sp_atack: 15,
-    sp_def: 15,
-    HP: 15,
+    atk: 52,
+    def: 48,
+    spd: 55,
+    sp_atack: 65,
+    sp_def: 50,
+    HP: 50,
   },
-  abillities: {
-    abillity: {
-      abillity_name: 'fire',
-      abillity_strengh: 15,
-      short_effect: 'a nice ball of fire',
+  abilities: {
+    ability: {
+      ability_name: 'Damp',
+      ability_strengh: 90,
+      short_effect: 'Prevents the use of self-destructing moves.',
     },
-    abillity_2: {
-      abillity_name: 'water',
-      abillity_strengh: 17,
-      short_effect: 'a nice splash of water',
+    ability_2: {
+      ability_name: 'Cloud Nine',
+      ability_strengh: 17,
+      short_effect: 'Eliminates the effects of weather',
+    },
+    ability_3: {
+      ability_name: '',
+      ability_strengh: 17,
+      short_effect: '',
     },
   },
 };
@@ -119,6 +138,13 @@ export default function AddItem() {
                 { value: 'Poison', label: 'Poison' },
                 { value: 'Grass', label: 'Grass' },
                 { value: 'Storm', label: 'Storm' },
+                { value: 'Ice', label: 'Ice' },
+                { value: 'Ghost', label: 'Ghost' },
+                { value: 'Eletric', label: 'Eletric' },
+                { value: 'Psychic', label: 'Psychic' },
+                { value: 'Rock', label: 'Rock' },
+                { value: 'Dark', label: 'Dark' },
+                { value: 'Ground', label: 'Ground' },
               ]}
               multiple
             />
@@ -191,38 +217,56 @@ export default function AddItem() {
 
           <Label>Skills*</Label>
 
-          <Scope path="abillities">
-            <Scope path="abillity">
+          <Scope path="abilities">
+            <Scope path="ability">
               <hr />
-              <Label>First Abillity</Label>
+              <Label>First ability</Label>
 
-              <StyledInput name="abillity_name" placeholder="abillity_name" />
+              <StyledInput name="ability_name" placeholder="ability name" />
               <StyledInput
-                name="abillity_strengh"
+                name="ability_strengh"
                 type="number"
                 min="15"
                 max="120"
-                placeholder="abillity_strengh"
+                placeholder="ability_strengh"
               />
 
-              <StyledInput name="short_effect" placeholder="short_effect" />
+              <StyledInput name="short_effect" placeholder="short effect" />
             </Scope>
           </Scope>
 
-          <Scope path="abillities">
-            <Scope path="abillity_2">
-              <Label>Second Abillity</Label>
+          <Divider />
 
-              <StyledInput name="abillity_name" placeholder="abillity_name" />
+          <Scope path="abilities">
+            <Scope path="ability_2">
+              <Label>Second ability</Label>
+
+              <StyledInput name="ability_name" placeholder="ability name" />
               <StyledInput
-                name="abillity_strengh"
+                name="ability_strengh"
                 type="number"
                 min="15"
                 max="120"
-                placeholder="abillity_strengh"
+                placeholder="ability_strengh"
               />
 
-              <StyledInput name="short_effect" placeholder="short_effect" />
+              <StyledInput name="short_effect" placeholder="short effect" />
+            </Scope>
+          </Scope>
+          <Scope path="abilities">
+            <Scope path="ability_3">
+              <Label>Third ability</Label>
+
+              <StyledInput name="ability_name" placeholder="ability name" />
+              <StyledInput
+                name="ability_strengh"
+                type="number"
+                min="15"
+                max="120"
+                placeholder="ability_strengh"
+              />
+
+              <StyledInput name="short_effect" placeholder="short effect" />
             </Scope>
           </Scope>
 

@@ -64,7 +64,13 @@ export const StyledInput = styled(Input)`
   align-self: flex-end;
 `;
 export const Label = styled.label`
+  width: 100%;
+  padding: 10px;
   align-self: flex-start;
+  /* background-color: ${colors.mostDarkestWhite}; */
+  font-weight: bold;
+  border-radius: 4px;
+  color: ${colors.ink};
 `;
 export const ButtonWrapper = styled.div`
   display: flex;

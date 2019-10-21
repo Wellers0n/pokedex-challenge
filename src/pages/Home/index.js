@@ -50,9 +50,9 @@ export default function Home() {
           <>
             <MyPokemonList />
             <ListItem />
-            <button type="button" onClick={() => handleLoadMore(pokemon)}>
+            <Button type="button" onClick={() => handleLoadMore(pokemon)}>
               Load More{' '}
-            </button>
+            </Button>
           </>
         )}
       </Container>

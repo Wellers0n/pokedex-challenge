@@ -5,6 +5,7 @@ import egg from '../../assets/egg.svg';
 import { deletePokemonRequest } from '../../store/modules/pokemon/actions';
 
 import { Wrapper } from '../ListItem/styles';
+import { Container } from './styles';
 
 export default function MyPokemonList() {
   const myPokemons = useSelector(state => state.pokemon.myPokemons);
@@ -18,21 +19,24 @@ export default function MyPokemonList() {
     if (myPokemons.lengh !== 0) {
       return (
         <>
-          <Wrapper>
-            {myPokemons.map((p, index) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <li key={index}>
-                <small>#{index + 1}</small>
-                <img src={egg} alt="avatar" />
-                <strong>{p.name}</strong>
+          <Container>
+            <h1>My Pokemons</h1>
+            <Wrapper>
+              {myPokemons.map((p, index) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <li key={index}>
+                  <small>#{index + 1}</small>
+                  <img src={egg} alt="avatar" />
+                  <strong>{p.name}</strong>
 
-                <button type="button" onClick={() => handleDelete(index)}>
-                  Delete
-                  <img src={Delete} alt="delete" />
-                </button>
-              </li>
-            ))}
-          </Wrapper>
+                  <button type="button" onClick={() => handleDelete(index)}>
+                    Delete
+                    <img src={Delete} alt="delete" />
+                  </button>
+                </li>
+              ))}
+            </Wrapper>
+          </Container>
         </>
       );
     }
