@@ -25,10 +25,6 @@ export default function RouteWrapper({
     return <Redirect to="/new" />;
   }
 
-  if (SuccessPage && !isPrivate) {
-    return <Redirect to="/new" />;
-  }
-
   return (
     <>
       <Route {...rest} render={props => <Component {...props} />} />
