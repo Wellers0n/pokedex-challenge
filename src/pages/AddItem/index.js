@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import { MdCameraAlt } from 'react-icons/md';
 import * as Yup from 'yup';
 
+import { useDispatch } from 'react-redux';
+import { addPokemonRequest } from '../../store/modules/pokemon/actions';
+
 import {
   Container,
   StyledForm,
@@ -74,17 +77,13 @@ const initialData = {
     },
   },
 };
-// const options = [
-//   { id: 'terra', title: 'Earth' },
-//   { id: 'fogo', title: 'Fire' },
-//   { id: 'agua', title: 'Water' },
-// ];
 
 export default function AddItem() {
-  function handleSubmit(data, { resetForm }) {
-    console.log(data);
+  const dispatch = useDispatch();
+  function handleSubmit(data) {
+    dispatch(addPokemonRequest(data));
 
-    resetForm();
+    // resetForm();
   }
   return (
     <Wrapper>

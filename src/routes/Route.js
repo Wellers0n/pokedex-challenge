@@ -8,6 +8,7 @@ export default function RouteWrapper({
   component: Component,
   isPrivate,
   isNew,
+  SuccessPage,
   ...rest
 }) {
   const { signed } = store.getState().auth;
@@ -21,6 +22,10 @@ export default function RouteWrapper({
   }
 
   if (isNew && !isPrivate) {
+    return <Redirect to="/new" />;
+  }
+
+  if (SuccessPage && !isPrivate) {
     return <Redirect to="/new" />;
   }
 

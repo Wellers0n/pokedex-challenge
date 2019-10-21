@@ -23,3 +23,31 @@ export function getPokemonHabillitiesSuccess(data) {
     payload: { data },
   };
 }
+
+export function addPokemonRequest(data) {
+  return {
+    type: '@pokemon/ADD_POKEMON_REQUEST',
+    payload: { data },
+  };
+}
+
+export function addPokemonSuccess(data) {
+  return {
+    type: '@pokemon/ADD_POKEMON_SUCCESS',
+    payload: { data },
+  };
+}
+
+export function deletePokemonRequest(id) {
+  return {
+    type: '@pokemon/DELETE_POKEMON',
+    id,
+  };
+}
+
+export function loadMore(qty) {
+  return {
+    type: '@pokemon/LOAD_MORE',
+    qty,
+  };
+}

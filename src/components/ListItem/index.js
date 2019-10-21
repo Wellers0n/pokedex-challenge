@@ -19,7 +19,7 @@ export default function ListItem() {
     getData().then(data => {
       setPoke(data);
     });
-  }, []);
+  }, [pokemons]);
 
   function handleDelete(id) {
     const Index = poke.filter(p => p.data.id !== id);

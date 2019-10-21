@@ -8,7 +8,6 @@ export function* signIn(email) {
 }
 
 export function signOut() {
-  console.tron.log('hey');
   history.push('/');
 }
 

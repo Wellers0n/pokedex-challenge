@@ -1,18 +1,24 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button';
 import star from '../../assets/star.svg';
 import history from '../../services/history';
 
-import { getPokemonsRequest } from '../../store/modules/pokemon/actions';
+import {
+  getPokemonsRequest,
+  loadMore,
+} from '../../store/modules/pokemon/actions';
 
 import { Wrapper, ActionBar, Container } from './styles';
 import ListItem from '../../components/ListItem';
+import MyPokemonList from '../../components/MyPokemonList';
 
 export default function Home() {
   const dispatch = useDispatch();
+  const loading = useSelector(state => state.pokemon.loading);
+  const pokemon = useSelector(state => state.pokemon.pokemon.length);
 
   useEffect(() => {
     dispatch(getPokemonsRequest());
@@ -22,6 +28,9 @@ export default function Home() {
     history.push('/');
   }
 
+  function handleLoadMore(qty) {
+    dispatch(loadMore(qty));
+  }
   return (
     <Wrapper>
       <Container>
@@ -35,8 +44,17 @@ export default function Home() {
             </Button>
           </Link>
         </ActionBar>
-
-        <ListItem />
+        {loading ? (
+          <h1>Loading...</h1>
+        ) : (
+          <>
+            <MyPokemonList />
+            <ListItem />
+            <button type="button" onClick={() => handleLoadMore(pokemon)}>
+              Load More{' '}
+            </button>
+          </>
+        )}
       </Container>
     </Wrapper>
   );

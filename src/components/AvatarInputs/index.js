@@ -2,15 +2,12 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useField } from '@rocketseat/unform';
 
 import { Container } from './styles';
-import bag from '../../assets/bag.svg';
 
 export default function AvatarInput() {
   const { defaultValue, registerField, error } = useField('avatar');
 
   const [preview, setPreview] = useState(defaultValue && defaultValue.url);
-  const [file, setFile] = useState(defaultValue && defaultValue.id);
-  localStorage.getItem('files');
-
+  const [file, setFile] = useState([defaultValue && defaultValue.id]);
   const ref = useRef();
 
   useEffect(() => {
@@ -18,25 +15,21 @@ export default function AvatarInput() {
       registerField({
         name: 'avatar',
         ref: ref.current,
-        path:
-          'https://cdn.icon-icons.com/icons2/851/PNG/512/psyduck_icon-icons.com_67509.png',
+        // path: 'dataset.file',
+        path: '',
       });
     }
   }, [ref.current]);
 
   async function handleChange(e) {
-    const formData = new FormData();
+    const data = new FormData();
 
     const avatarPreview = URL.createObjectURL(e.target.files[0]);
-    localStorage.setItem('files', avatarPreview);
 
-    formData.append('avatar', avatarPreview);
-
-    // const reader = new FileReader();
-    // reader.readAsDataURL(formData[1]);
+    data.append('avatar', avatarPreview);
 
     setPreview(avatarPreview);
-    setFile(avatarPreview);
+    setFile(data);
   }
 
   return (
