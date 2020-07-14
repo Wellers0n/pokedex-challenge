@@ -25,11 +25,9 @@ export default function Home() {
   const loadingCroct = useSelector(state => state.croct.loading);
 
   useEffect(() => {
-    dispatch(getUserAction());
     dispatch(getPokemonsRequest());
     dispatch(userReturningAction());
-
-
+    dispatch(getUserAction());
   }, []);
 
   function handleNew() {
