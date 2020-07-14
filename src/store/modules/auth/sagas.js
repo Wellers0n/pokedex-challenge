@@ -2,12 +2,17 @@ import { takeLatest, all, put } from 'redux-saga/effects';
 import history from '../../../services/history';
 import { signInSuccess } from './actions';
 
-export function* signIn(email) {
-  yield put(signInSuccess(email));
+import { userReturningResponseAction, setUserAction } from './../croct/actions';
+
+export function* signIn(payload) {
+  yield put(signInSuccess(payload));
+  yield put(setUserAction());
   history.push('home');
 }
 
-export function signOut() {
+export function* signOut() {
+  localStorage.removeItem('token')
+  yield put(userReturningResponseAction(false))
   history.push('/');
 }
 

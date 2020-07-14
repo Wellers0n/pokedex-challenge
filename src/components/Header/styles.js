@@ -30,3 +30,22 @@ export const Container = styled.div`
     }
   }
 `;
+
+export const Left = styled.div`
+
+`
+
+export const Right = styled.div`
+  display: flex;
+  > button {
+    margin-right: 15px;
+  }
+`
+
+export const Circle = styled.div`
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  margin-right: 5px;
+  background: ${({ on }) => on ? '#08D65B' : 'orange'}
+`

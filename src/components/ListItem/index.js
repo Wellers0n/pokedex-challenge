@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Delete from '../../assets/freedom.svg';
+import { useDispatch } from 'react-redux';
 
 import { Wrapper } from './styles';
 
 import api from '../../services/api';
 
-export default function ListItem() {
+import { setPokemonViewedAction } from '../../store/modules/croct/actions';
+
+
+export default function ListItem(props) {
   const [poke, setPoke] = useState([]);
   const pokemons = useSelector(state => state.pokemon.pokemon);
   const urls = pokemons.map(p => p.url);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function getData() {
@@ -30,7 +35,7 @@ export default function ListItem() {
     <>
       <Wrapper>
         {poke.map(p => (
-          <li key={p.data.id}>
+          <li onMouseLeave={() => dispatch(setPokemonViewedAction(p.data.name))} key={p.data.id}>
             <small>#{p.data.id}</small>
             <img src={p.data.sprites.front_default} alt="imagem" />
             <strong>{p.data.name}</strong>

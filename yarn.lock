@@ -901,6 +901,21 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@croct/plug@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@croct/plug/-/plug-0.3.0.tgz#a00d3f33e984cd277ecceea8d4b5a0dcb4696e16"
+  integrity sha512-ucgSMJdnqy8IdGX5l6ekPDNPKpokhTn74dAVy/E/fXV/tafra3Qb4QdVXNesjCIWKnxx3EgUwzVwyFu90jVJEA==
+  dependencies:
+    "@croct/sdk" "^0.2.0"
+    tslib "^2.0.0"
+
+"@croct/sdk@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@croct/sdk/-/sdk-0.2.0.tgz#e8588fb8d603d5d2f9406da3e25315e837b76a79"
+  integrity sha512-wErkcIGwOAjnpvI5fAvX6YyvrUkFZY+V7n98o0vupveqQc3C5jvxFoZoizScK/eVLCxc11MvJdErK8XDkc/X2w==
+  dependencies:
+    tslib "^2.0.0"
+
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
@@ -9893,6 +9908,11 @@ tslib@^1.8.1, tslib@^1.9.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
   integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
+
+tslib@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.0.0.tgz#18d13fc2dce04051e20f074cc8387fd8089ce4f3"
+  integrity sha512-lTqkx847PI7xEDYJntxZH89L2/aXInsyF2luSafe/+0fHOMjlBNXdH6th7f70qxLDhul7KZK0zC8V5ZIyHl0/g==
 
 tsutils@^3.17.1:
   version "3.17.1"
